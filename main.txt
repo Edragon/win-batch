@@ -1,0 +1,9 @@
+@echo off
+
+set avd=D:\Git-code\arduino\arduino-1.8.12-windows\arduino-1.8.12\hardware\tools\avr\bin\avrdude.exe
+set cof=-CD:\Git-code\arduino\arduino-1.8.12-windows\arduino-1.8.12\hardware\tools\avr\etc\avrdude.conf
+
+set test=%avd% %cof% -c usbasp -p m328p -b 19200
+
+
+if %1==test start /i %test%
