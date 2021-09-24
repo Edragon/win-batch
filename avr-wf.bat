@@ -8,11 +8,8 @@ set cof=-CD:\Git-code\arduino\arduino-1.8.12-windows\arduino-1.8.12\hardware\too
 set f=D:\Git-code\arduino\arduino-1.8.12-windows\arduino-1.8.12\hardware\arduino\avr\bootloaders\optiboot\optiboot_atmega328.hex
 
 
-set write_hex=%avd% %cof% -c usbasp -p m328p -b 19200 -U flash:w:"%f%":a
-%write_hex%
+set cmd=%avd% %cof% -c usbasp -p m328p -b 19200 -U efuse:w:0xFD:m -U lfuse:w:0xFF:m -U hfuse:w:0xDE:m 
 
-set write_fuse=%avd% %cof% -c usbasp -p m328p -b 19200 -U efuse:w:0xFD:m -U lfuse:w:0xFF:m -U hfuse:w:0xDE:m 
-%write_fuse%
-
+%cmd%
 
 cmd /k
